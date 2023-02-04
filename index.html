@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Image primary and secondary colors extractor 🖌🎨</title>
+</head>
+
+<body class="bg-slate-900 text-white">
+    <div class="max-w-5xl mx-auto p-5 flex flex-col items-start gap-4">
+        <h1 class="text-5xl">Image primary and secondary colors extractor 🖼</h1>
+
+        <div>
+            <span id="error-message" class="text-red-500 text-sm hidden">Please upload your picture</span>
+            <img src="" class="w-60 h-60 object-cover hidden" alt="image preview" id="image-preview">
+        </div>
+
+        <label
+            class="bg-transparent border border-white hover:opacity-70 transition-opacity duration-100 py-2 px-4 rounded-lg cursor-pointer flex items-center">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                <path
+                    d="M16.88 9.1A4 4 0 0 1 16 17H5a5 5 0 0 1-1-9.9V7a3 3 0 0 1 4.52-2.59A4.98 4.98 0 0 1 17 8c0 .38-.04.74-.12 1.1zM11 11h3l-4-4-4 4h3v3h2v-3z" />
+            </svg>
+            Choose your image
+            <input class="hidden" type="file" id="image-input" accept="image/*" />
+        </label>
+
+
+        <button id="extract-btn"
+            class="bg-blue-500 py-2 px-2 rounded-sm hover:translate-y-[1px] transition-transform ease-in-out">Extract
+            colors</button>
+
+        <p id="loading" class="hidden">Extracting...</p>
+
+        <span id="failed-message" class="text-red-500 text-sm hidden">I'm sorry, I couldn't find colors for this one
+            😜</span>
+
+        <div class="flex-col gap-3 hidden" id="colors-preview">
+            <div class="flex items-center border border-white rounded-md p-3 w-fit gap-3">
+                <p>Primary color</p>
+                <span class="h-10 w-10 bg-pink-400 hover:cursor-pointer" id="primary-color"></span>
+            </div>
+
+            <div class="flex items-center border border-white rounded-md p-3 w-fit gap-3">
+                <p>Secondary color</p>
+                <span class="h-10 w-10 bg-green-400 hover:cursor-pointer" id="secondary-color"></span>
+            </div>
+        </div>
+
+        <span class="fixed bottom-0 right-0 mb-6 mr-6 transition-all translate-y-80 duration-500 ease-in-out"
+            id="popup">
+            <div class="bg-white text-green-600 p-3 font-bold rounded-lg shadow-lg">
+                Copied to clipboard!
+            </div>
+        </span>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
